@@ -11,7 +11,7 @@ public class OpenGoogle
 		WebDriver myDriver = new FirefoxDriver();
 		
 		myDriver.get("http://google.com");
-		myDriver.navigate().to("http://google.com");
+		//myDriver.navigate().to("http://google.com");
 
 	}
 
