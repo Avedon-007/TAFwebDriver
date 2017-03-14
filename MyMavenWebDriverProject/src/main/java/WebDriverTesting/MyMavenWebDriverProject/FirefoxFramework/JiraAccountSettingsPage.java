@@ -1,4 +1,4 @@
-package WebDriverTesting.MyMavenWebDriverProject;
+package WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework;
 
 
 

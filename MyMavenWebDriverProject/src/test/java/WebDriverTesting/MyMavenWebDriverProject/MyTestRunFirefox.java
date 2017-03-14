@@ -5,11 +5,16 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraAccountSettingsPage;
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraHomePage;
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraLoginPage;
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraProfilePage;
 
 
 
 
-public class MyTestRun extends DriverLifecycleManagement
+
+public class MyTestRunFirefox extends DriverLifecycleManagement
 {
 
 	@AfterTest

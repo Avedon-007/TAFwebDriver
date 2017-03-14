@@ -1,4 +1,4 @@
-package WebDriverTesting.MyMavenWebDriverProject;
+package WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
