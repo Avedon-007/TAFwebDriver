@@ -28,7 +28,7 @@ public class MyTestRunEdge extends DriverLifecycleManagement
 	public void testUpdateIssue()
 	{
 		LeantestingStartPage srartPage = new LeantestingStartPage(driver);
-		
+		JiraHomePage homePage = loginStartPage.logging("a_n_d_y-007@mail.ru", tester-user-1, "1234567890");
 		
 	}
 	
