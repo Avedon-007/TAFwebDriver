@@ -2,6 +2,8 @@ package WebDriverTesting.MyMavenWebDriverProject;
 
 import java.util.concurrent.TimeUnit;
 
+
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.AssertJUnit;
 import org.testng.annotations.AfterClass;
@@ -12,7 +14,6 @@ import org.testng.annotations.Test;
 import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineHomePage;
 import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineLoginPage;
 import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineRegisterNewIssue;
-import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.logging;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraAccountSettingsPage;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraHomePage;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraLoginPage;
@@ -22,7 +23,8 @@ import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraProfilePage
 
 
 
-public class MyTestRunChrome extends DriverLifecycleManagement
+public class MyTestRunChrome 
+//extends DriverLifecycleManagement
 {
 	private static ChromeDriver driver;
 	
@@ -51,18 +53,18 @@ public class MyTestRunChrome extends DriverLifecycleManagement
 	public void testCreateNewIssue()
 	{
 		RedmineHomePage startPage = new RedmineHomePage(driver);
-		RedmineRegisterNewIssue registerNewIssue = startPage.signUpNewUser("User", "pass", "confirm pass", "name",
-				"Last name", "email");
+//		RedmineRegisterNewIssue registerNewIssue = startPage.signUpNewUser("User", "pass", "confirm pass", "name",
+//				"Last name", "email");
 	}
 	
-	@Test
-	public void testUpdateIssue()
-	{
-		RedmineHomePage startPage = new RedmineHomePage(driver);
-		RedmineLoginPage loginPage = startPage.logging("username", "password");
-		
-		
-	}
+//	@Test
+//	public void testUpdateIssue()
+//	{
+//		RedmineHomePage startPage = new RedmineHomePage(driver);
+//		RedmineLoginPage loginPage = startPage.logging("username", "password");
+//		
+//		
+//	}
 	
 	
 }
