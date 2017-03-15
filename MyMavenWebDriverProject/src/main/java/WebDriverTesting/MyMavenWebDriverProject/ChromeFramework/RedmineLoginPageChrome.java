@@ -1,5 +1,6 @@
 package WebDriverTesting.MyMavenWebDriverProject.ChromeFramework;
 
-public class RedmineRegisterNewIssue {
+public class RedmineLoginPageChrome 
+{
 
 }

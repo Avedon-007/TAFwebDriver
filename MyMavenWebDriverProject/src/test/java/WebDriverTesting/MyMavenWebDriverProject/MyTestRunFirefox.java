@@ -1,38 +1,56 @@
 package WebDriverTesting.MyMavenWebDriverProject;
 
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraAccountSettingsPage;
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraHomePage;
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraLoginPage;
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraProfilePage;
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineHomePageFirefox;
 
 
 
 
 
-public class MyTestRunFirefox extends DriverLifecycleManagement
+
+public class MyTestRunFirefox 
 {
-
+	private static FirefoxDriver driver;
+	
+	@BeforeClass
+	public void setUpDriver()
+	{
+		System.setProperty("webdriver.gecko.driver", "D:\\Programs\\TEST\\Selenium\\geckodriver.exe");
+		driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get("http://demo.redmine.org/");
+	}	
+	
 	@AfterTest
 	public void cleanUp()
 	{
 		driver.manage().deleteAllCookies();
 	}
 
+	@AfterClass
+	public static void tearDown()
+	{
+		driver.close();
+	}
+	
+	
 	@Test
 	public void testUpdateIssue()
 	{
 		
-		JiraLoginPage loginStartPage = new JiraLoginPage(driver);
-		JiraHomePage homePage = loginStartPage.logging("svv.tes@gmail.com", "1234567890");
-		JiraProfilePage profilePage = homePage.openProfile();
-		JiraAccountSettingsPage accountSettings = profilePage.openAccountSettings();
-		accountSettings.updateAccountPofile("Home");
-		AssertJUnit.assertTrue(accountSettings.getOrganization().equals("Home"));
+		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
+		RedmineRegisterNewIssueChrome registerNewIssue = startPage.signUpNewUser("User", "pass", "confirm pass", "name",
+				"Last name", "email");
 	}
 	
 	

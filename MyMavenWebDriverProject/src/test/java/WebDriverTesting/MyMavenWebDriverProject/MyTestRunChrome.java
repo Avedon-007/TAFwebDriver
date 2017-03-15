@@ -11,9 +11,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineHomePage;
-import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineLoginPage;
-import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineRegisterNewIssue;
+import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineHomePageChrome;
+import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineLoginPageChrome;
+import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineRegisterNewIssueChrome;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraAccountSettingsPage;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraHomePage;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraLoginPage;
@@ -31,6 +31,7 @@ public class MyTestRunChrome
 	@BeforeClass
 	public void setUpDriver()
 	{
+		System.setProperty("webdriver.chrome.driver", "D:\\Programs\\TEST\\Selenium\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -52,19 +53,19 @@ public class MyTestRunChrome
 	@Test
 	public void testCreateNewIssue()
 	{
-		RedmineHomePage startPage = new RedmineHomePage(driver);
-//		RedmineRegisterNewIssue registerNewIssue = startPage.signUpNewUser("User", "pass", "confirm pass", "name",
-//				"Last name", "email");
+		RedmineHomePageChrome startPage = new RedmineHomePageChrome(driver);
+		RedmineRegisterNewIssueChrome registerNewIssue = startPage.signUpNewUser("User", "pass", "confirm pass", "name",
+				"Last name", "email");
 	}
 	
-//	@Test
-//	public void testUpdateIssue()
-//	{
-//		RedmineHomePage startPage = new RedmineHomePage(driver);
-//		RedmineLoginPage loginPage = startPage.logging("username", "password");
-//		
-//		
-//	}
+	@Test
+	public void testUpdateIssue()
+	{
+		RedmineHomePageChrome startPage = new RedmineHomePageChrome(driver);
+		RedmineLoginPageChrome loginPage = startPage.logging("username", "password");
+		
+		
+	}
 	
 	
 }
