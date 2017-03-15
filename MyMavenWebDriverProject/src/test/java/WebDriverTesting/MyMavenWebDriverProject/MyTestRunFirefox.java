@@ -50,8 +50,8 @@ public class MyTestRunFirefox
 		RedmineRegisterNewIssueFirefox registerNewIssue = startPage.openSignUpPage();
 		RedmineMyAccountPageFirefox myAccount = registerNewIssue
 				.signUpNewUser("test-user-1", "1234567890", "1234567890", "user",
-				"userenko", "a_n_d_y-007@mail.ru");
-		assertTrue(myAccount.getConfirmText().equals("Account was successfully updated."));			
+				"userenko", "testuser1@gmail.con");
+		assertTrue(myAccount.getConfirmText().equals("Ваша учётная запись активирована. Вы можете войти."));			
 		assertTrue(myAccount.getLoginTest().equals("test-user-1"));
 				
 				
@@ -61,7 +61,7 @@ public class MyTestRunFirefox
 	public void testUpdateIssue()
 	{
 		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
-		RedmineLoginPageFirefox loginPage = startPage.logging("username", "password");
+		RedmineLoginPageFirefox loginPage = startPage.logging("test-user-1", "1234567890");
 		
 		
 	}
