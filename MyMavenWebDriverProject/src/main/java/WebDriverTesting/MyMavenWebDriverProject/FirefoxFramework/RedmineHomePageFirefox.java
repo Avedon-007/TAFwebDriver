@@ -11,4 +11,12 @@ public class RedmineHomePageFirefox
 		this.driver = driver;
 	}
 
+	public RedmineRegisterNewIssueFirefox openSignUpPage() 
+	{
+		// TODO Auto-generated method stub
+		return new RedmineRegisterNewIssueFirefox(driver);
+	}
+
+	
+
 }
