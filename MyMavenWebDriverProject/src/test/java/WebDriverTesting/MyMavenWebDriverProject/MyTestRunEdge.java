@@ -5,7 +5,7 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.LeantestingStartPage;
+import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineHomePage;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraAccountSettingsPage;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraHomePage;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraLoginPage;
@@ -27,7 +27,7 @@ public class MyTestRunEdge extends DriverLifecycleManagement
 	@Test
 	public void testUpdateIssue()
 	{
-		LeantestingStartPage srartPage = new LeantestingStartPage(driver);
+		RedmineHomePage srartPage = new RedmineHomePage(driver);
 		JiraHomePage homePage = loginStartPage.logging("a_n_d_y-007@mail.ru", tester-user-1, "1234567890");
 		
 	}

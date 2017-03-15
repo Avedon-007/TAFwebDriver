@@ -4,11 +4,11 @@ package WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework;
 import org.openqa.selenium.edge.*;
 
 
-public class LeantestingStartPage 
+public class RedmineHomePage 
 {
 	private final EdgeDriver driver;
 	
-	public LeantestingStartPage(EdgeDriver driver)
+	public RedmineHomePage(EdgeDriver driver)
 	{
 		this.driver = driver;
 	}

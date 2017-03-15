@@ -4,11 +4,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 
-public class LeantestingStartPage 
+public class RedmineHomePage 
 {
 	private final ChromeDriver driver;
 	
-	public LeantestingStartPage(ChromeDriver driver)
+	public RedmineHomePage(ChromeDriver driver)
 	{
 		this.driver = driver;
 	}
