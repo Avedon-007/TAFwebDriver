@@ -1,7 +1,9 @@
 package WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework;
 
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 
 public class RedmineMyAccountPageFirefox 
 {
@@ -25,7 +27,7 @@ public class RedmineMyAccountPageFirefox
 	public void updateAccount() 
 	{
 		driver.findElement(By.id("user_language")).click();
-		driver.findElement(By.id("user_language")).sendKeys("English");
+		driver.findElement(By.id("user_language")).("English");
 		driver.findElement(By.name("commit")).submit();
 	}
 
@@ -36,6 +38,7 @@ public class RedmineMyAccountPageFirefox
 
 	public Object getUpdateNotificationText()
 	{	
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		return driver.findElement(By.id("flash_notice")).getText();
 	}
 	

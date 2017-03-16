@@ -18,7 +18,7 @@ public class RedmineRegisterNewIssueFirefox
 	
 	public RedmineMyAccountPageFirefox signUpNewUser(String login,
 			String pass, String confirmPass, String userName, String lastName,
-			String email)
+			String email) throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 //		Select dropdown = new Select(driver.findElement(By.id("user_language")));	// 2-й вариант
@@ -39,14 +39,13 @@ public class RedmineRegisterNewIssueFirefox
 		driver.findElement(By.id("user_mail")).sendKeys(email);
 		
 		driver.findElement(By.id("user_language")).click();
-		driver.findElement(By.id("user_language")).sendKeys("Russian (Русский)");	// 1-й вариант
+		//driver.findElement(By.name=user[language] value=en)).click();	// 1-й вариант
 		
 		
-//		driver.findElement(By.xpath("path to drop down upon click it will show 
-//				the dd with values")).click();
-//		Select se=new Select(driver.findElement(By.name("Sex[0]")));
-//		se.selectByIndex(0);
-//		Thread.sleep(2000);
+		
+		Select se=new Select(driver.findElement(By.name("Sex[0]")));
+		se.selectByValue("en");
+		Thread.sleep(2000);
 		
 		
 		

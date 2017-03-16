@@ -28,31 +28,31 @@ public class MyTestRunFirefox
 		driver.manage().window().maximize();
 		driver.get("http://demo.redmine.org/");
 	}	
+//	
+//	@AfterMethod
+//	public void cleanUp()
+//	{
+//		driver.manage().deleteAllCookies();
+//	}
+//
+//	@AfterClass
+//	public static void tearDown()
+//	{
+//		driver.close();
+//	}	
 	
-	@AfterMethod
-	public void cleanUp()
-	{
-		driver.manage().deleteAllCookies();
-	}
-
-	@AfterClass
-	public static void tearDown()
-	{
-		driver.close();
-	}	
-	
-	@Test
-	public void testCreateNewIssue()
-	{		
-		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
-		RedmineRegisterNewIssueFirefox registerNewIssue = startPage.openSignUpPage();
-		RedmineMyAccountPageFirefox myAccount = registerNewIssue
-				.signUpNewUser("test-user-1", "1234567890", "1234567890", "user",
-				"userenko", "testuser1@gmail.con");
-		assertTrue(myAccount.getConfirmText().equals("Ваша учётная запись активирована. Вы можете войти."));			
-		assertTrue(myAccount.getLoginText().equals("test-user-1"));				
-	}
-	
+//	@Test
+//	public void testCreateNewIssue()
+//	{		
+//		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
+//		RedmineRegisterNewIssueFirefox registerNewIssue = startPage.openSignUpPage();
+//		RedmineMyAccountPageFirefox myAccount = registerNewIssue
+//				.signUpNewUser("test-user-1", "1234567890", "1234567890", "user",
+//				"userenko", "testuser1@gmail.con");
+//		assertTrue(myAccount.getConfirmText().equals("Ваша учётная запись активирована. Вы можете войти."));			
+//		assertTrue(myAccount.getLoginText().equals("test-user-1"));				
+//	}
+//	
 		
 	
 	
