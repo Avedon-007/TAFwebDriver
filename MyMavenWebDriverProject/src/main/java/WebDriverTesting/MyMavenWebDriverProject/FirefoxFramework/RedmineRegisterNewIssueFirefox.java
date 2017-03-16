@@ -37,7 +37,19 @@ public class RedmineRegisterNewIssueFirefox
 		driver.findElement(By.id("user_lastname")).sendKeys(lastName);
 		driver.findElement(By.id("user_mail")).clear();
 		driver.findElement(By.id("user_mail")).sendKeys(email);
+		
+		driver.findElement(By.id("user_language")).click();
 		driver.findElement(By.id("user_language")).sendKeys("Russian (Русский)");	// 1-й вариант
+		
+		
+//		driver.findElement(By.xpath("path to drop down upon click it will show 
+//				the dd with values")).click();
+//		Select se=new Select(driver.findElement(By.name("Sex[0]")));
+//		se.selectByIndex(0);
+//		Thread.sleep(2000);
+		
+		
+		
 		driver.findElement(By.name("commit")).submit();		
 		
 		return new RedmineMyAccountPageFirefox(driver);
