@@ -1,5 +1,6 @@
 package WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class RedmineLoginPageFirefox 
@@ -12,9 +13,14 @@ public class RedmineLoginPageFirefox
 		this.driver = driver;
 	}
 
-	public RedmineLoggedInPageFirefox logging(String string, String string2) 
+	public RedmineLoggedInPageFirefox logging(String login, String pass) 
 	{
-		// TODO Auto-generated method stub
+		driver.findElement(By.id("username")).clear();
+		driver.findElement(By.id("username")).sendKeys(login);
+		driver.findElement(By.id("password")).clear();
+		driver.findElement(By.id("password")).sendKeys(pass);
+		driver.findElement(By.name("login")).submit();
+		
 		return new RedmineLoggedInPageFirefox(driver);
 	}
 

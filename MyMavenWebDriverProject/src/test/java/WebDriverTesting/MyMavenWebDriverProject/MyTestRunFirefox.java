@@ -57,7 +57,7 @@ public class MyTestRunFirefox
 				.signUpNewUser("test-user-1", "1234567890", "1234567890", "user",
 				"userenko", "testuser1@gmail.con");
 		assertTrue(myAccount.getConfirmText().equals("Ваша учётная запись активирована. Вы можете войти."));			
-		assertTrue(myAccount.getLoginTest().equals("test-user-1"));				
+		assertTrue(myAccount.getLoginText().equals("test-user-1"));				
 	}
 	
 		

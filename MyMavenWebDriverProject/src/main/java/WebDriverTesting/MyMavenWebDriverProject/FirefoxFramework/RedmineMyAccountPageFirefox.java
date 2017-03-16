@@ -17,27 +17,26 @@ public class RedmineMyAccountPageFirefox
 		return driver.findElement(By.id("flash_notice")).getText();
 	}
 
-	public String getLoginTest() 
+	public String getLoginText() 
 	{		
 		return driver.findElement(By.className("user active")).getText();
 	}
 
 	public void updateAccount() 
 	{
-		// TODO Auto-generated method stub
-		
+		driver.findElement(By.id("user_language")).click();
+		driver.findElement(By.id("user_language")).sendKeys("English");
+		driver.findElement(By.name("commit")).submit();
 	}
 
 	public Object getUpdatedPageNameText() 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return driver.findElement(By.name("authenticity_token")).getText();
 	}
 
 	public Object getUpdateNotificationText()
-	{
-		// TODO Auto-generated method stub
-		return null;
+	{	
+		return driver.findElement(By.id("flash_notice")).getText();
 	}
 	
 }

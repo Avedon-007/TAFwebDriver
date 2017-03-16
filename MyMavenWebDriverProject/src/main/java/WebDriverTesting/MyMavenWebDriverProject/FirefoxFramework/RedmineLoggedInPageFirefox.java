@@ -1,5 +1,6 @@
 package WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class RedmineLoggedInPageFirefox 
@@ -14,7 +15,7 @@ public class RedmineLoggedInPageFirefox
 
 	public RedmineMyAccountPageFirefox openAccoutPage() 
 	{
-		// TODO Auto-generated method stub
+		driver.findElement(By.className("my-account")).click();
 		return new RedmineMyAccountPageFirefox(driver);
 	}
 
