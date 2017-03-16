@@ -47,5 +47,11 @@ public class RedmineMyAccountPageFirefox
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		return driver.findElement(By.id("flash_notice")).getText();
 	}
+
+	public RedmineHomePageFirefox logOut() 
+	{
+		driver.findElement(By.xpath("/html/body/div/div/div[1]/div[1]/div[1]/ul/li[2]/a")).click();
+		return new RedmineHomePageFirefox(driver);
+	}
 	
 }
