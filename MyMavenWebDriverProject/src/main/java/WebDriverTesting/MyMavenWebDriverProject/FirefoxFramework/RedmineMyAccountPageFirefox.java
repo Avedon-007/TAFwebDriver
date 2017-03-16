@@ -21,5 +21,23 @@ public class RedmineMyAccountPageFirefox
 	{		
 		return driver.findElement(By.className("user active")).getText();
 	}
+
+	public void updateAccount() 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getUpdatedPageNameText() 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getUpdateNotificationText()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
