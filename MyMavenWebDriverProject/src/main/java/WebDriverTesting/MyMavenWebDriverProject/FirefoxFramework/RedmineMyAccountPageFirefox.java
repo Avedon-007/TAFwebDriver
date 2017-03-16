@@ -23,7 +23,7 @@ public class RedmineMyAccountPageFirefox
 
 	public String getLoginText() 
 	{		
-		return driver.findElement(By.className("user active")).getText();
+		return driver.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[1]/p[1]/strong/a")).getText();
 	}
 
 	public void updateAccount() throws InterruptedException 

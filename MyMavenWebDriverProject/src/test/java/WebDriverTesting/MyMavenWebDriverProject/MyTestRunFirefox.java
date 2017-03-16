@@ -44,32 +44,32 @@ public class MyTestRunFirefox
 		driver.close();
 	}	
 	
-//	@Test
-//	public void testCreateNewIssue()
-//	{		
-//		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
-//		RedmineRegisterNewIssueFirefox registerNewIssue = startPage.openSignUpPage();
-//		RedmineMyAccountPageFirefox myAccount = registerNewIssue
-//				.signUpNewUser("test-user-1", "1234567890", "1234567890", "user",
-//				"userenko", "testuser1@gmail.con");
-//		assertTrue(myAccount.getConfirmText().equals("Ваша учётная запись активирована. Вы можете войти."));			
-//		assertTrue(myAccount.getLoginText().equals("test-user-1"));				
-//	}
-//	
+	@Test
+	public void testCreateNewIssue() throws InterruptedException
+	{		
+		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
+		RedmineRegisterNewIssueFirefox registerNewIssue = startPage.openSignUpPage();
+		RedmineMyAccountPageFirefox myAccount = registerNewIssue
+				.signUpNewUser("test-user-1", "1234567890", "1234567890", "user",
+				"userenko", "testuser1@gmail.con");
+		assertTrue(myAccount.getConfirmText().equals("Ваша учётная запись активирована. Вы можете войти."));			
+		assertTrue(myAccount.getLoginText().equals("test-user-1"));				
+	}
+	
 		
 	
 	
-	@Test
-	public void testUpdateIssue() throws InterruptedException
-	{
-		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
-		RedmineLoginPageFirefox loginPage = startPage.openLogInPage();
-		RedmineLoggedInPageFirefox loggedPage = loginPage.logging("test-user-1", "1234567890");
-		RedmineMyAccountPageFirefox myAccount = loggedPage.openAccoutPage();
-		myAccount.updateAccount();
-		assertTrue(myAccount.getUpdateNotificationText().equals("Account was successfully updated."));
-		assertTrue(myAccount.getUpdatedPageNameText().equals("My account"));
-	}
+//	@Test
+//	public void testUpdateIssue() throws InterruptedException
+//	{
+//		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
+//		RedmineLoginPageFirefox loginPage = startPage.openLogInPage();
+//		RedmineLoggedInPageFirefox loggedPage = loginPage.logging("test-user-1", "1234567890");
+//		RedmineMyAccountPageFirefox myAccount = loggedPage.openAccoutPage();
+//		myAccount.updateAccount();
+//		assertTrue(myAccount.getUpdateNotificationText().equals("Account was successfully updated."));
+//		assertTrue(myAccount.getUpdatedPageNameText().equals("My account"));
+//	}
 	
 	
 	
