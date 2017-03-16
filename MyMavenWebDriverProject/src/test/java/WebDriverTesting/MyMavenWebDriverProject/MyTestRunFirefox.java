@@ -2,19 +2,12 @@ package WebDriverTesting.MyMavenWebDriverProject;
 
 
 import static org.testng.AssertJUnit.assertTrue;
-
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.AssertJUnit;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineHomePageChrome;
-import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineLoginPageChrome;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineHomePageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoggedInPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoginPageFirefox;
