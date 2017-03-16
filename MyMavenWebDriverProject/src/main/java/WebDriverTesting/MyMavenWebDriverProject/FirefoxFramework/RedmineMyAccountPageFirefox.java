@@ -1,8 +1,10 @@
 package WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework;
 
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class RedmineMyAccountPageFirefox 
@@ -24,19 +26,23 @@ public class RedmineMyAccountPageFirefox
 		return driver.findElement(By.className("user active")).getText();
 	}
 
-	public void updateAccount() 
+	public void updateAccount() throws InterruptedException 
 	{
-		driver.findElement(By.id("user_language")).click();
-		driver.findElement(By.id("user_language")).("English");
+		// Working with Drop down menu
+		driver.findElement(By.id("user_language")).click();		
+		Select se=new Select(driver.findElement(By.id("user_language")));
+		se.selectByValue("en");
+		Thread.sleep(2000);
 		driver.findElement(By.name("commit")).submit();
 	}
 
-	public Object getUpdatedPageNameText() 
+	public String getUpdatedPageNameText() 
 	{
-		return driver.findElement(By.name("authenticity_token")).getText();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		return driver.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/h2")).getText();
 	}
 
-	public Object getUpdateNotificationText()
+	public String getUpdateNotificationText()
 	{	
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		return driver.findElement(By.id("flash_notice")).getText();

@@ -43,7 +43,7 @@ public class RedmineRegisterNewIssueFirefox
 		
 		
 		
-		Select se=new Select(driver.findElement(By.name("Sex[0]")));
+		Select se=new Select(driver.findElement(By.id("user_language")));
 		se.selectByValue("en");
 		Thread.sleep(2000);
 		

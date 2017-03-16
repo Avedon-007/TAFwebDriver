@@ -2,12 +2,15 @@ package WebDriverTesting.MyMavenWebDriverProject;
 
 
 import static org.testng.AssertJUnit.assertTrue;
+
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineHomePageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoggedInPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoginPageFirefox;
@@ -28,18 +31,18 @@ public class MyTestRunFirefox
 		driver.manage().window().maximize();
 		driver.get("http://demo.redmine.org/");
 	}	
-//	
-//	@AfterMethod
-//	public void cleanUp()
-//	{
-//		driver.manage().deleteAllCookies();
-//	}
-//
-//	@AfterClass
-//	public static void tearDown()
-//	{
-//		driver.close();
-//	}	
+	
+	@AfterMethod
+	public void cleanUp()
+	{
+		driver.manage().deleteAllCookies();
+	}
+
+	@AfterClass
+	public static void tearDown()
+	{
+		driver.close();
+	}	
 	
 //	@Test
 //	public void testCreateNewIssue()
@@ -57,7 +60,7 @@ public class MyTestRunFirefox
 	
 	
 	@Test
-	public void testUpdateIssue()
+	public void testUpdateIssue() throws InterruptedException
 	{
 		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
 		RedmineLoginPageFirefox loginPage = startPage.openLogInPage();
