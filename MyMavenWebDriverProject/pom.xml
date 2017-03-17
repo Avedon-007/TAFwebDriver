@@ -48,6 +48,11 @@
 		<groupId>org.seleniumhq.selenium</groupId>
 		<artifactId>selenium-server</artifactId>
 		<version>3.0.1</version>
+		<configuration>
+			        <suiteXmlFiles>
+			           <suiteXmlFile>testng.xml</suiteXmlFile>
+			         </suiteXmlFiles>
+		       </configuration>  
 	</dependency>     	       
   </dependencies>
   
