@@ -2,24 +2,11 @@ package WebDriverTesting.MyMavenWebDriverProject;
 
 
 import static org.testng.AssertJUnit.assertTrue;
-
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-
-
-
-
-
-
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineHomePageFirefox;
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoggedInPageFirefox;
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoginPageFirefox;
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineMyAccountPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineHomePageEdge;
 import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineLoggedInPageEdge;
 import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineLoginPageEdge;
