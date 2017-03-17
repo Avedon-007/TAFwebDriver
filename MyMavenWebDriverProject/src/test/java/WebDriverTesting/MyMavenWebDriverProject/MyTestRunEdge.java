@@ -13,7 +13,16 @@ import org.testng.annotations.Test;
 
 
 
+
+
+
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineHomePageFirefox;
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoggedInPageFirefox;
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoginPageFirefox;
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineMyAccountPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineHomePageEdge;
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineLoggedInPageEdge;
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineLoginPageEdge;
 import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineMyAccountPageEdge;
 import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineRegisterNewIssueEdge;
 
@@ -47,7 +56,7 @@ public class MyTestRunEdge
 	}	
 
 	@Test
-	public void testUpdateIssue() throws InterruptedException
+	public void testCreateNewIssue() throws InterruptedException
 	{
 		System.out.println("Launch Test #1");
 		RedmineHomePageEdge startPage = new RedmineHomePageEdge(driver);
@@ -57,10 +66,20 @@ public class MyTestRunEdge
 				"userenko", "testuser1@gmail.con");
 		//assertTrue(myAccount.getConfirmText().equals("Ваша учётная запись активирована. Вы можете войти."));			
 		assertTrue(myAccount.getLoginText().equals("test-user-1"));		
-		startPage = myAccount.logOut();
-		
-		
+		startPage = myAccount.logOut();		
 	}
 	
-	
+	@Test
+	public void testUpdateIssue() throws InterruptedException
+	{
+		System.out.println("Launch Test #2");
+		RedmineHomePageEdge startPage = new RedmineHomePageEdge(driver);
+		RedmineLoginPageEdge loginPage = startPage.openLogInPage();
+		RedmineLoggedInPageEdge loggedPage = loginPage.logging("test-user-1", "1234567890");
+		RedmineMyAccountPageEdge myAccount = loggedPage.openAccoutPage();
+		myAccount.updateAccount();
+		assertTrue(myAccount.getUpdateNotificationText().equals("Account was successfully updated."));
+		assertTrue(myAccount.getUpdatedPageNameText().equals("My account"));
+		startPage = myAccount.logOut();
+	}		
 }
