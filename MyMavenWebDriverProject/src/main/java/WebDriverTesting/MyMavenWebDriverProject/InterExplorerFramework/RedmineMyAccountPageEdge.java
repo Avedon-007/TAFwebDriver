@@ -53,6 +53,11 @@ public class RedmineMyAccountPageEdge
 		driver.findElement(By.xpath("/html/body/div/div/div[1]/div[1]/div[1]/ul/li[2]/a")).click();
 		return new RedmineHomePageEdge(driver);
 	}
+	public RedmineDeleteConfirmPage openDeleteAccountPage() 
+	{
+		driver.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[1]/p[2]/a")).click();
+		return new RedmineDeleteConfirmPage(driver);
+	}
 
 	
 }

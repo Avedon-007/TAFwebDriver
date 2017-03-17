@@ -52,6 +52,7 @@ public class MyTestRunFirefox
 		assertTrue(myAccount.getConfirmText().equals("Ваша учётная запись активирована. Вы можете войти."));			
 		assertTrue(myAccount.getLoginText().equals("test-user-1"));		
 		startPage = myAccount.logOut();
+		System.out.println("Test #1 is Passed!");
 	}		
 
 	@Test
@@ -66,5 +67,6 @@ public class MyTestRunFirefox
 		assertTrue(myAccount.getUpdateNotificationText().equals("Account was successfully updated."));
 		assertTrue(myAccount.getUpdatedPageNameText().equals("My account"));
 		startPage = myAccount.logOut();
+		System.out.println("Test #2 is Passed!");
 	}	
 }
