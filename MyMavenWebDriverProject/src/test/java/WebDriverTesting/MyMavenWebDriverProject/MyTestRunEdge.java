@@ -44,9 +44,12 @@ public class MyTestRunEdge
 	public static void tearDown()
 	{
 		driver.manage().deleteAllCookies();		
-		driver.quit();
+		//driver.quit();
+		if(driver!=null) {
+			driver.close();
+		}
 	}	
-	@AfterClass
+//	@AfterClass
 //	public static void deleteIssue()
 //	{
 //		System.out.println("Deleting Issue...");
@@ -100,6 +103,7 @@ public class MyTestRunEdge
 		RedmineMyAccountPageEdge myAccount = loggedPage.openAccoutPage();		
 		RedmineDeleteConfirmPage deleteConfirm = myAccount.openDeleteAccountPage();
 		deleteConfirm.deleteAccounr();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		System.out.println("Issue has been deleted.");
 	}
