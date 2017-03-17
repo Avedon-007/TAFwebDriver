@@ -23,8 +23,7 @@ import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraProfilePage
 
 
 
-public class MyTestRunChrome 
-//extends DriverLifecycleManagement
+public class RunChrome
 {
 	private static ChromeDriver driver;
 	
