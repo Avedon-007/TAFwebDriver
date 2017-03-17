@@ -2,11 +2,14 @@ package WebDriverTesting.MyMavenWebDriverProject;
 
 
 import static org.testng.AssertJUnit.assertTrue;
+
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineHomePageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoggedInPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoginPageFirefox;
@@ -21,11 +24,13 @@ public class MyTestRunFirefox
 	@BeforeMethod
 	public void setUpDriver()
 	{
+		System.out.println("launching Firefox browser.");
 		System.setProperty("webdriver.gecko.driver", "D:\\Programs\\TEST\\Selenium\\geckodriver.exe");
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("http://demo.redmine.org/");
+		System.out.println("Firefox browser launched successfully");
 	}		
 
 	@AfterMethod
@@ -38,6 +43,7 @@ public class MyTestRunFirefox
 	@Test
 	public void testCreateNewIssue() throws InterruptedException
 	{		
+		System.out.println("Launch Test #1");
 		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
 		RedmineRegisterNewIssueFirefox registerNewIssue = startPage.openSignUpPage();
 		RedmineMyAccountPageFirefox myAccount = registerNewIssue
@@ -51,6 +57,7 @@ public class MyTestRunFirefox
 	@Test
 	public void testUpdateIssue() throws InterruptedException
 	{
+		System.out.println("Launch Test #2");
 		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
 		RedmineLoginPageFirefox loginPage = startPage.openLogInPage();
 		RedmineLoggedInPageFirefox loggedPage = loginPage.logging("test-user-1", "1234567890");

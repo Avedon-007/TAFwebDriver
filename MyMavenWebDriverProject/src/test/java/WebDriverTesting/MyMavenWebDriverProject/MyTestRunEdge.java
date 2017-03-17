@@ -1,34 +1,64 @@
 package WebDriverTesting.MyMavenWebDriverProject;
 
 
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterTest;
+import static org.testng.AssertJUnit.assertTrue;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import WebDriverTesting.MyMavenWebDriverProject.ChromeFramework.RedmineHomePageChrome;
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraAccountSettingsPage;
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraHomePage;
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraLoginPage;
-import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.JiraProfilePage;
+
+
+
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineHomePageEdge;
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineMyAccountPageEdge;
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineRegisterNewIssueEdge;
 
 
 
 
 
-public class MyTestRunEdge extends DriverLifecycleManagement
+
+public class MyTestRunEdge
 {
+	private static InternetExplorerDriver driver;
 
-	@AfterTest
-	public void cleanUp()
+	
+	@BeforeMethod
+	public void setUpDriver()
+	{
+		System.out.println("launching Microsoft Edge browser.");
+		System.setProperty("webdriver.ie.driver", "D:\\Programs\\TEST\\Selenium\\MicrosoftEdgeWebDriver.exe");
+		driver = new InternetExplorerDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get("http://demo.redmine.org/");
+		System.out.println("Microsoft Edge browser launched successfully");
+	}		
+
+	@AfterMethod
+	public static void tearDown()
 	{
 		driver.manage().deleteAllCookies();
-	}
+		driver.quit();
+	}	
 
 	@Test
-	public void testUpdateIssue()
+	public void testUpdateIssue() throws InterruptedException
 	{
-		RedmineHomePageChrome srartPage = new RedmineHomePageChrome(driver);
-		JiraHomePage homePage = loginStartPage.logging("a_n_d_y-007@mail.ru", tester-user-1, "1234567890");
+		System.out.println("Launch Test #1");
+		RedmineHomePageEdge startPage = new RedmineHomePageEdge(driver);
+		RedmineRegisterNewIssueEdge registerNewIssue = startPage.openSignUpPage();
+		RedmineMyAccountPageEdge myAccount = registerNewIssue
+				.signUpNewUser("test-user-1", "1234567890", "1234567890", "user",
+				"userenko", "testuser1@gmail.con");
+		//assertTrue(myAccount.getConfirmText().equals("Ваша учётная запись активирована. Вы можете войти."));			
+		assertTrue(myAccount.getLoginText().equals("test-user-1"));		
+		startPage = myAccount.logOut();
+		
 		
 	}
 	
