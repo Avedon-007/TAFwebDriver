@@ -10,11 +10,17 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineDeleteConfirmPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineHomePageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoggedInPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoginPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineMyAccountPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineRegisterNewIssueFirefox;
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineDeleteConfirmPageEdge;
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineHomePageEdge;
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineLoggedInPageEdge;
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineLoginPageEdge;
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineMyAccountPageEdge;
 
 
 public class MyTestRunFirefox 
@@ -24,7 +30,7 @@ public class MyTestRunFirefox
 	@BeforeMethod
 	public void setUpDriver()
 	{
-		System.out.println("launching Firefox browser.");
+		System.out.println("Launching Firefox browser.");
 		System.setProperty("webdriver.gecko.driver", "D:\\Programs\\TEST\\Selenium\\geckodriver.exe");
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -40,7 +46,7 @@ public class MyTestRunFirefox
 		driver.quit();
 	}	
 	
-	@Test
+	@Test(priority = 1)
 	public void testCreateNewIssue() throws InterruptedException
 	{		
 		System.out.println("Launch Test #1");
@@ -55,7 +61,7 @@ public class MyTestRunFirefox
 		System.out.println("Test #1 is Passed!");
 	}		
 
-	@Test
+	@Test(priority = 2)
 	public void testUpdateIssue() throws InterruptedException
 	{
 		System.out.println("Launch Test #2");
@@ -69,4 +75,18 @@ public class MyTestRunFirefox
 		startPage = myAccount.logOut();
 		System.out.println("Test #2 is Passed!");
 	}	
+	
+	@Test(priority = 3)
+	public void testDeleteIssue() throws InterruptedException
+	{
+		System.out.println("Deleting Issue...");		
+		RedmineHomePageFirefox startPage = new RedmineHomePageFirefox(driver);
+		RedmineLoginPageFirefox loginPage = startPage.openLogInPage();
+		RedmineLoggedInPageFirefox loggedPage = loginPage.logging("test-user-1", "1234567890");
+		RedmineMyAccountPageFirefox myAccount = loggedPage.openAccoutPage();		
+		RedmineDeleteConfirmPageFirefox deleteConfirm = myAccount.openDeleteAccountPage();
+		deleteConfirm.deleteAccounr();		
+		//assertTrue(myAccount.getDeletedAccountNotificationText().equals("Your account has been permanently deleted."));
+		System.out.println("Issue has been deleted.");
+	}
 }

@@ -11,7 +11,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineDeleteConfirmPage;
+import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineDeleteConfirmPageFirefox;
+import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineDeleteConfirmPageEdge;
 import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineHomePageEdge;
 import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineLoggedInPageEdge;
 import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineLoginPageEdge;
@@ -31,7 +32,7 @@ public class MyTestRunEdge
 	@BeforeMethod
 	public void setUpDriver()
 	{
-		System.out.println("launching Microsoft Edge browser.");
+		System.out.println("Launching Microsoft Edge browser.");
 		System.setProperty("webdriver.ie.driver", "D:\\Programs\\TEST\\Selenium\\MicrosoftEdgeWebDriver.exe");
 		driver = new InternetExplorerDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -49,19 +50,6 @@ public class MyTestRunEdge
 			driver.close();
 		}
 	}	
-//	@AfterClass
-//	public static void deleteIssue()
-//	{
-//		System.out.println("Deleting Issue...");
-//		RedmineHomePageEdge startPage = new RedmineHomePageEdge(driver);
-//		RedmineLoginPageEdge loginPage = startPage.openLogInPage();
-//		RedmineLoggedInPageEdge loggedPage = loginPage.logging("test-user-1", "1234567890");
-//		RedmineMyAccountPageEdge myAccount = loggedPage.openAccoutPage();		
-//		RedmineDeleteConfirmPage deleteConfirm = myAccount.openDeleteAccountPage();
-//		deleteConfirm.deleteAccounr();
-//		driver.quit();
-//		System.out.println("Issue has been deleted.");
-//	}
 
 	@Test(priority = 1)
 	public void testCreateNewIssue() throws InterruptedException
@@ -96,15 +84,14 @@ public class MyTestRunEdge
 	@Test(priority = 3)
 	public void testDeleteIssue() throws InterruptedException
 	{
-		System.out.println("Deleting Issue...");
+		System.out.println("Deleting Issue...");		
 		RedmineHomePageEdge startPage = new RedmineHomePageEdge(driver);
 		RedmineLoginPageEdge loginPage = startPage.openLogInPage();
 		RedmineLoggedInPageEdge loggedPage = loginPage.logging("test-user-1", "1234567890");
 		RedmineMyAccountPageEdge myAccount = loggedPage.openAccoutPage();		
-		RedmineDeleteConfirmPage deleteConfirm = myAccount.openDeleteAccountPage();
-		deleteConfirm.deleteAccounr();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		
+		RedmineDeleteConfirmPageEdge deleteConfirm = myAccount.openDeleteAccountPage();
+		deleteConfirm.deleteAccounr();		
+		//assertTrue(myAccount.getDeletedAccountNotificationText().equals("Your account has been permanently deleted."));
 		System.out.println("Issue has been deleted.");
 	}
 }
