@@ -60,7 +60,7 @@ public class MyTestRunEdge
 //		System.out.println("Issue has been deleted.");
 //	}
 
-	@Test
+	@Test(priority = 1)
 	public void testCreateNewIssue() throws InterruptedException
 	{
 		System.out.println("Launch Test #1");
@@ -75,7 +75,7 @@ public class MyTestRunEdge
 		System.out.println("Test #1 is Passed!");
 	}
 	
-	@Test
+	@Test(priority = 2)
 	public void testUpdateIssue() throws InterruptedException
 	{
 		System.out.println("Launch Test #2");
@@ -90,7 +90,7 @@ public class MyTestRunEdge
 		System.out.println("Test #2 is Passed!");
 	}		
 	
-	@Test
+	@Test(priority = 3)
 	public void testDeleteIssue() throws InterruptedException
 	{
 		System.out.println("Deleting Issue...");
