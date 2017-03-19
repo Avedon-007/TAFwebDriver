@@ -38,6 +38,13 @@
 		</build>	
 
   <dependencies>
+  
+   	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.12</version>
+		<scope>test</scope>
+	</dependency>
    
     <dependency>
  		<groupId>org.testng</groupId>
@@ -46,11 +53,7 @@
  		 <scope>test</scope>
 	</dependency>	
 	
-	<dependency>
-    	<groupId>org.seleniumhq.selenium</groupId>
-   		 <artifactId>selenium-server</artifactId>
-    	<version>3.3.1</version>
-	</dependency>     
+	 
 	
 	<dependency>
 	    <groupId>org.seleniumhq.selenium</groupId>
@@ -58,11 +61,11 @@
     	<version>3.3.1</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+<!-- 	 https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
 	<dependency>
-    	<groupId>org.seleniumhq.selenium</groupId>
-    	<artifactId>selenium-firefox-driver</artifactId>
-   		 <version>3.3.1</version>
+	    	<groupId>org.seleniumhq.selenium</groupId>
+	    	<artifactId>selenium-firefox-driver</artifactId>
+	   	 <version>3.3.1</version>
 	</dependency>
 	
 	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->

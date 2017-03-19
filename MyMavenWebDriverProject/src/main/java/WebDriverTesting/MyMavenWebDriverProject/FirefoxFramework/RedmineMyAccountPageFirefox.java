@@ -1,10 +1,12 @@
 package WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework;
 
-import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 
@@ -40,13 +42,17 @@ public class RedmineMyAccountPageFirefox
 
 	public String getUpdatedPageNameText() 
 	{
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/h2")));
 		return driver.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/h2")).getText();
 	}
 
 	public String getUpdateNotificationText()
 	{	
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("flash_notice")));
 		return driver.findElement(By.id("flash_notice")).getText();
 	}
 

@@ -19,8 +19,8 @@ public class RedmineDeleteConfirmPageEdge
 
 	public void deleteAccounr() 
 	{		
-		driver.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div[1]/form/label/input")).click();
-		driver.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[2]/div[1]/form/input[3]")).click();		
+		driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[3]/div[2]/div[1]/form/label/input")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[3]/div[2]/div[1]/form/input[3]")).click();		
 	}
 	
 	

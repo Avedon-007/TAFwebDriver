@@ -1,9 +1,11 @@
 package WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework;
 
-import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class RedmineHomePageFirefox 
@@ -17,14 +19,18 @@ public class RedmineHomePageFirefox
 
 	public RedmineRegisterNewIssueFirefox openSignUpPage() 
 	{		
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.className("register")));
 		driver.findElement(By.className("register")).click();		
 		return new RedmineRegisterNewIssueFirefox(driver);
 	}
 
 	public RedmineLoginPageFirefox openLogInPage() 
 	{
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.className("login")));
 		driver.findElement(By.className("login")).click();		
 		return new RedmineLoginPageFirefox(driver);
 	}
