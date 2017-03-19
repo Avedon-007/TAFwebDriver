@@ -64,7 +64,10 @@ public class RedmineMyAccountPageFirefox
 
 	public RedmineDeleteConfirmPageFirefox openDeleteAccountPage() 
 	{
-		driver.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[1]/p[2]/a")).click();
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("html/body/div/div/div[1]/div[3]/div[1]/p[2]/a")));
+		driver.findElement(By.xpath("html/body/div/div/div[1]/div[3]/div[1]/p[2]/a")).click();
 		return new RedmineDeleteConfirmPageFirefox(driver);
 	}
 	

@@ -24,7 +24,7 @@ private final FirefoxDriver driver;
 	{		
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("html/body/div[1]/div/div[1]/div[3]/div[2]/div[1]/form/label")));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("html/body/div/div/div[1]/div[3]/div[2]/div[1]/form/label")));
 		//driver.findElement(By.xpath("html/body/div[1]/div/div[1]/div[3]/div[2]/div[1]/form/label/input")).click();
 		driver.findElement(By.id("confirm")).click();		
 		driver.findElement(By.name("commit")).click();

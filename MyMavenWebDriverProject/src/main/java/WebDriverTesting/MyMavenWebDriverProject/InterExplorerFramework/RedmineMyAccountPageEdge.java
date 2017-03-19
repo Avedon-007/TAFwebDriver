@@ -4,7 +4,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 
@@ -55,6 +57,9 @@ public class RedmineMyAccountPageEdge
 	}
 	public RedmineDeleteConfirmPageEdge openDeleteAccountPage() 
 	{
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("html/body/div/div/div[1]/div[3]/div[1]/p[2]/a")));
 		driver.findElement(By.xpath("/html/body/div/div/div[1]/div[3]/div[1]/p[2]/a")).click();
 		return new RedmineDeleteConfirmPageEdge(driver);
 	}
