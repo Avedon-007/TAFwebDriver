@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
-public class TestDriverLifecycleManagement 
+public class DriverLifecycleManagement 
 {
 	protected static FirefoxDriver driver;
 	
@@ -24,7 +24,7 @@ public class TestDriverLifecycleManagement
 	}		
 
 	@After
-	public static void tearDown()
+	public  void tearDown()
 	{
 		driver.manage().deleteAllCookies();
 		driver.quit();
