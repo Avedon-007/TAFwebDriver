@@ -1,14 +1,17 @@
 package WebDriverTesting.MyMavenWebDriverProject;
 
 
-import static org.testng.AssertJUnit.assertTrue;
+
+
+import static org.junit.Assert.*;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+
+
+
 
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineDeleteConfirmPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineHomePageFirefox;
@@ -18,30 +21,11 @@ import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineMyAccoun
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineRegisterNewIssueFirefox;
 
 
-public class TestRunFirefox 
+public class TestRunFirefox extends DriverLifecycleManagement
 {
-	private static FirefoxDriver driver;
 	
-	@BeforeMethod
-	public void setUpDriver()
-	{
-		System.out.println("Launching Firefox browser.");
-		System.setProperty("webdriver.gecko.driver", "D:\\Programs\\TEST\\Selenium\\geckodriver.exe");
-		driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		driver.get("http://demo.redmine.org/");
-		System.out.println("Firefox browser launched successfully");
-	}		
-
-	@AfterMethod
-	public static void tearDown()
-	{
-		driver.manage().deleteAllCookies();
-		driver.quit();
-	}	
 	
-	@Test(priority = 4)
+	@Test//(priority = 4)
 	public void testCreateNewIssue() throws InterruptedException
 	{		
 		System.out.println("Launch Test #1");
@@ -56,7 +40,7 @@ public class TestRunFirefox
 		System.out.println("Test #1 is Passed!");
 	}		
 
-	@Test(priority = 5)
+	@Test//(priority = 5)
 	public void testUpdateIssue() throws InterruptedException
 	{
 		System.out.println("Launch Test #2");
@@ -71,7 +55,7 @@ public class TestRunFirefox
 		System.out.println("Test #2 is Passed!");
 	}	
 	
-	@Test(priority = 6)
+	@Test//(priority = 6)
 	public void testDeleteIssue() throws InterruptedException
 	{
 		System.out.println("Deleting Issue...");		

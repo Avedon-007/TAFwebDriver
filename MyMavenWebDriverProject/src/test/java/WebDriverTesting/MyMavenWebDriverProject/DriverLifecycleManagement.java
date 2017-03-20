@@ -2,28 +2,31 @@ package WebDriverTesting.MyMavenWebDriverProject;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+
 
 public class DriverLifecycleManagement 
 {
 	protected static FirefoxDriver driver;
 	
-	@BeforeClass
-	public static void setUp()
+	@Before
+	public void setUpDriver()
 	{
+		System.out.println("Launching Firefox browser.");
 		System.setProperty("webdriver.gecko.driver", "D:\\Programs\\TEST\\Selenium\\geckodriver.exe");
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver.get("https://id.atlassian.com/login?application=jac&continue=https%3A%2F%2Fjira.atlassian.com%2Fdefault.jsp");
-	}
-	
+		driver.get("http://demo.redmine.org/");
+		System.out.println("Firefox browser launched successfully");
+	}		
 
-	@AfterClass
+	@After
 	public static void tearDown()
 	{
-		driver.close();
-	}
+		driver.manage().deleteAllCookies();
+		driver.quit();
+	}	
 }
