@@ -41,7 +41,7 @@ public class TestRunFirefox
 		driver.quit();
 	}	
 	
-	@Test(priority = 1)
+	@Test(priority = 4)
 	public void testCreateNewIssue() throws InterruptedException
 	{		
 		System.out.println("Launch Test #1");
@@ -56,7 +56,7 @@ public class TestRunFirefox
 		System.out.println("Test #1 is Passed!");
 	}		
 
-	@Test(priority = 2)
+	@Test(priority = 5)
 	public void testUpdateIssue() throws InterruptedException
 	{
 		System.out.println("Launch Test #2");
@@ -71,7 +71,7 @@ public class TestRunFirefox
 		System.out.println("Test #2 is Passed!");
 	}	
 	
-	@Test(priority = 3)
+	@Test(priority = 6)
 	public void testDeleteIssue() throws InterruptedException
 	{
 		System.out.println("Deleting Issue...");		
