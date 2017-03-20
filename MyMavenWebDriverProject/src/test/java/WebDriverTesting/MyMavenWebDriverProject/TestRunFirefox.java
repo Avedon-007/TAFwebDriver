@@ -10,7 +10,7 @@ import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineMyAccoun
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineRegisterNewIssueFirefox;
 
 
-public class TestRunFirefox extends DriverLifecycleManagement
+public class TestRunFirefox extends TestDriverLifecycleManagement
 {
 	
 	
