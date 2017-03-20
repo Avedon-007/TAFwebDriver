@@ -24,7 +24,7 @@ import WebDriverTesting.MyMavenWebDriverProject.InterExplorerFramework.RedmineRe
 
 
 
-public class MyTestRunEdge
+public class TestRunEdge
 {
 	private static InternetExplorerDriver driver;
 
