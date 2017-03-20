@@ -1,18 +1,7 @@
 package WebDriverTesting.MyMavenWebDriverProject;
 
-
-
-
 import static org.junit.Assert.*;
-
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-
-
-
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineDeleteConfirmPageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineHomePageFirefox;
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineLoggedInPageFirefox;
