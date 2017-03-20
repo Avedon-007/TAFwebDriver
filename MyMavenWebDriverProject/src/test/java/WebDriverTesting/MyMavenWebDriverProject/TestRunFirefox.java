@@ -18,7 +18,7 @@ import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineMyAccoun
 import WebDriverTesting.MyMavenWebDriverProject.FirefoxFramework.RedmineRegisterNewIssueFirefox;
 
 
-public class MyTestRunFirefox 
+public class TestRunFirefox 
 {
 	private static FirefoxDriver driver;
 	
